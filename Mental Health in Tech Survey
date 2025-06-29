@@ -1,0 +1,2132 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "I1apcow5dxii"
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "vncDsAP0Gaoa"
+   },
+   "source": [
+    "# **Exploratory Data Analysis for Mental health survey in tech industry** -"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "beRrZCGUAJYm",
+    "jp-MarkdownHeadingCollapsed": true
+   },
+   "source": [
+    "##### **Project Type**    - EDA/Regression/Classification/Unsupervised\n",
+    "##### **Contribution**    - Individual\n",
+    "##### **Team Member 1 -** - Divya Vamshi"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "FJNUwmbgGyua"
+   },
+   "source": [
+    "# **Project Summary -**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "F6v_1wHtG2nS"
+   },
+   "source": [
+    "This project presents an exploratory data analysis (EDA) of a survey focused on mental health in the tech industry. The main objective is to understand how various personal, professional, and organizational factors influence whether employees seek mental health treatment.\n",
+    "\n",
+    "The dataset includes responses from over 1200 professionals working in tech and related fields. It covers key aspects such as age, gender, remote work, family history of mental illness, self-employment, company size, access to mental health benefits, workplace support, and perceptions of stigma.\n",
+    "\n",
+    "DATA PREPARATION\n",
+    "The dataset was first cleaned and prepared through data wrangling techniques:\n",
+    "Standardizing column names and categories (e.g., gender)\n",
+    "Removing duplicates and unrealistic age values\n",
+    "Handling missing values in key fields\n",
+    "Converting inconsistent text responses into usable formats\n",
+    "This ensured the dataset was reliable and analysis-ready.\n",
+    "\n",
+    "VISUAL ANALYSIS (15 CHARTS)\n",
+    "Fifteen meaningful visualizations were created to explore relationships between key variables:\n",
+    "1. Gender vs Mental Health Treatment\n",
+    "2. Age Distribution Based on Treatment Status\n",
+    "3. Remote Work vs Treatment\n",
+    "4. Family History of Mental Illness vs Treatment\n",
+    "5. Employer Mental Health Benefits vs Treatment\n",
+    "6. Comfort Talking to Supervisor vs Treatment\n",
+    "7. Comfort Talking to Coworkers vs Treatment\n",
+    "8. Work Interference Due to Mental Health vs Treatment\n",
+    "9. Perception of Mental Health vs Physical Health Equality vs Treatment\n",
+    "10. Ease of Taking Mental Health Leave vs Treatment\n",
+    "11. Company Size vs Mental Health Treatment\n",
+    "12. Self-Employment Status vs Treatment\n",
+    "13. Tech Company vs Non-Tech Company vs Treatment\n",
+    "14. Willingness to Discuss Mental Health in Job Interviews vs Treatment\n",
+    "15. Observed Negative Consequences at Work vs Treatment\n",
+    "Each chart was analyzed for patterns, with key insights and business implications noted. These visualizations helped uncover both supportive factors and barriers that influence treatment behavior.\n",
+    "\n",
+    "KEY INSIGHTS\n",
+    "Males, self-employed workers, and small-company employees are less likely to seek help.\n",
+    "Employees who feel supported by supervisors and coworkers, or are aware of mental health benefits, are more likely to seek treatment.\n",
+    "A lack of communication, stigma, or fear of consequences are major barriers.\n",
+    "Employees who experience work interference due to mental health are more likely to seek support, but often only when symptoms affect performance.\n",
+    "\n",
+    "BUSINESS IMPACT\n",
+    "The insights from this analysis can guide companies to:\n",
+    "Offer and promote clear mental health resources\n",
+    "Train leaders and HR teams to support employees without judgment\n",
+    "Normalize mental health conversations across all teams\n",
+    "Design inclusive policies that protect employee well-being\n",
+    "These changes can lead to improved engagement, reduced burnout, and higher retention in tech environments."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "w6K7xa23Elo4"
+   },
+   "source": [
+    "# **GitHub Link -**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "h1o69JH3Eqqn"
+   },
+   "source": [
+    "Provide your GitHub Link here."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "yQaldy8SH6Dl"
+   },
+   "source": [
+    "# **Problem Statement**\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "DpeJGUA3kjGy"
+   },
+   "source": [
+    "Mental health is a growing concern in the tech industry, where high pressure, long hours, and limited awareness often lead to untreated mental health issues. Many employees may hesitate to seek treatment due to stigma, lack of support, or fear of negative consequences at work."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PH-0ReGfmX4f"
+   },
+   "source": [
+    "#### **Define Your Business Objective?**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PhDvGCAqmjP1"
+   },
+   "source": [
+    "To understand employee behavior and perceptions around mental health, and identify how workplace factors — such as gender, remote work, company size, and available benefits — influence the likelihood of seeking treatment. The goal is to generate insights that help companies improve mental health support, reduce stigma, and promote a healthier workplace culture."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "mDgbUHAGgjLW"
+   },
+   "source": [
+    "# **General Guidelines** : -  "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ZrxVaUj-hHfC"
+   },
+   "source": [
+    "1.   Well-structured, formatted, and commented code is required.\n",
+    "2.   Exception Handling, Production Grade Code & Deployment Ready Code will be a plus. Those students will be awarded some additional credits.\n",
+    "     \n",
+    "     The additional credits will have advantages over other students during Star Student selection.\n",
+    "       \n",
+    "             [ Note: - Deployment Ready Code is defined as, the whole .ipynb notebook should be executable in one go\n",
+    "                       without a single error logged. ]\n",
+    "\n",
+    "3.   Each and every logic should have proper comments.\n",
+    "4. You may add as many number of charts you want. Make Sure for each and every chart the following format should be answered.\n",
+    "        \n",
+    "\n",
+    "```\n",
+    "# Chart visualization code\n",
+    "```\n",
+    "            \n",
+    "\n",
+    "*   Why did you pick the specific chart?\n",
+    "*   What is/are the insight(s) found from the chart?\n",
+    "* Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason.\n",
+    "\n",
+    "5. You have to create at least 20 logical & meaningful charts having important insights.\n",
+    "\n",
+    "\n",
+    "[ Hints : - Do the Vizualization in  a structured way while following \"UBM\" Rule.\n",
+    "\n",
+    "U - Univariate Analysis,\n",
+    "\n",
+    "B - Bivariate Analysis (Numerical - Categorical, Numerical - Numerical, Categorical - Categorical)\n",
+    "\n",
+    "M - Multivariate Analysis\n",
+    " ]\n",
+    "\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "O_i_v8NEhb9l"
+   },
+   "source": [
+    "# ***Let's Begin !***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "HhfV-JJviCcP"
+   },
+   "source": [
+    "## ***1. Know Your Data***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Y3lxredqlCYt"
+   },
+   "source": [
+    "### Import Libraries"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "id": "M8Vqi-pPk-HR"
+   },
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import seaborn as sns\n",
+    "sns.set(style=\"whitegrid\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "3RnN4peoiCZX"
+   },
+   "source": [
+    "### Dataset Loading"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "4CkvbW_SlZ_R"
+   },
+   "outputs": [],
+   "source": [
+    "df = pd.read_csv(\"/Users/divyagowda/Downloads/survey.csv\")\n",
+    "df.head()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "x71ZqKXriCWQ"
+   },
+   "source": [
+    "### Dataset First View"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "LWNFOSvLl09H"
+   },
+   "outputs": [],
+   "source": [
+    "df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "7hBIi_osiCS2"
+   },
+   "source": [
+    "### Dataset Rows & Columns count"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "Kllu7SJgmLij"
+   },
+   "outputs": [],
+   "source": [
+    "num_rows = df.shape[0]\n",
+    "num_columns = df.shape[1]\n",
+    "\n",
+    "print(f\"Number of rows: {num_rows}\")\n",
+    "print(f\"Number of columns: {num_columns}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "JlHwYmJAmNHm"
+   },
+   "source": [
+    "### Dataset Information"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "e9hRXRi6meOf"
+   },
+   "outputs": [],
+   "source": [
+    "df.info()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "35m5QtbWiB9F"
+   },
+   "source": [
+    "#### Duplicate Values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "1sLdpKYkmox0"
+   },
+   "outputs": [],
+   "source": [
+    "duplicate_count = df.duplicated().sum()\n",
+    "\n",
+    "print(f\"Number of duplicate rows: {duplicate_count}\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PoPl-ycgm1ru"
+   },
+   "source": [
+    "#### Missing Values/Null Values"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "GgHWkxvamxVg"
+   },
+   "outputs": [],
+   "source": [
+    "missing_values = df.isnull().sum()\n",
+    "\n",
+    "missing_values = missing_values[missing_values > 0]\n",
+    "\n",
+    "print(\"Missing values in each column:\")\n",
+    "print(missing_values)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "3q5wnI3om9sJ"
+   },
+   "outputs": [],
+   "source": [
+    "plt.figure(figsize=(12, 6))\n",
+    "sns.heatmap(df.isnull(), cbar=False, cmap=\"YlOrRd\", yticklabels=False)\n",
+    "plt.title(\"Missing Values Heatmap\")\n",
+    "plt.xlabel(\"Columns\")\n",
+    "plt.ylabel(\"Rows\")\n",
+    "plt.show()\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "H0kj-8xxnORC"
+   },
+   "source": [
+    "### What did you know about your dataset?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "gfoNAAC-nUe_"
+   },
+   "source": [
+    "1. Dataset Size\n",
+    "The dataset contains 1259 rows and 27 columns.\n",
+    "Each row represents one person's responses to a mental health survey.\n",
+    "2. Types of Data\n",
+    "Most columns contain text (e.g., \"Yes\", \"No\", country names, etc.).\n",
+    "The \"Age\" column contains numeric values.\n",
+    "3. Missing Values\n",
+    "Some columns have missing or empty values.\n",
+    "I used a heatmap to easily visualize which parts of the dataset are incomplete.\n",
+    "4. Duplicate Entries\n",
+    "I checked for duplicate rows in the dataset.\n",
+    "No duplicates were found.\n",
+    "5. General Structure\n",
+    "The dataset includes responses to questions about mental health, work environment, and company support.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "nA9Y7ga8ng1Z"
+   },
+   "source": [
+    "## ***2. Understanding Your Variables***"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "j7xfkqrt5Ag5"
+   },
+   "outputs": [],
+   "source": [
+    "df.columns.tolist()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "DnOaZdaE5Q5t"
+   },
+   "outputs": [],
+   "source": [
+    "df.describe()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PBTbrJXOngz2"
+   },
+   "source": [
+    "### Variables Description"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "aJV4KIxSnxay"
+   },
+   "source": [
+    "Timestamp: When the person filled out the survey.\n",
+    "Age: The person’s age.\n",
+    "Gender: The person’s gender.\n",
+    "Country: Which country they live in.\n",
+    "state: Which U.S. state they live in.\n",
+    "self_employed: Whether they are self-employed or not.\n",
+    "family_history: If anyone in their family has had mental health issues.\n",
+    "treatment: If they have ever received treatment for mental health.\n",
+    "work_interfere: If their mental health affects their work.\n",
+    "no_employees: How big their company is.\n",
+    "remote_work: If they work from home at least half the time.\n",
+    "tech_company: If their company is in the tech industry.\n",
+    "benefits: If their company offers mental health benefits.\n",
+    "care_options: If they know what mental health care options their company offers.\n",
+    "wellness_program: If the company talks about mental health in wellness programs.\n",
+    "seek_help: If the company provides resources to learn about or get help for mental health.\n",
+    "anonymity: If they can stay anonymous when using mental health resources.\n",
+    "leave: How easy it is to take time off for mental health reasons.\n",
+    "mental_health_consequence: If they think talking about mental health could cause problems at work.\n",
+    "phys_health_consequence: If they think talking about physical health could cause problems at work.\n",
+    "coworkers: If they feel okay talking about mental health with coworkers.\n",
+    "supervisor: If they feel okay talking about mental health with their boss.\n",
+    "mental_health_interview: If they would talk about mental health in a job interview.\n",
+    "phys_health_interview: If they would talk about physical health in a job interview.\n",
+    "mental_vs_physical: If mental health is treated as seriously as physical health at work.\n",
+    "obs_consequence: If they’ve seen someone face problems at work due to mental health.\n",
+    "comments: Extra notes or comments the person wanted to share.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "u3PMJOP6ngxN"
+   },
+   "source": [
+    "### Check Unique Values for each variable."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "zms12Yq5n-jE"
+   },
+   "outputs": [],
+   "source": [
+    "for column in df.columns:\n",
+    "    print(f\"--- {column} ---\")\n",
+    "    print(df[column].unique())\n",
+    "    print(\"\\n\")\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "dauF4eBmngu3"
+   },
+   "source": [
+    "## 3. ***Data Wrangling***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "bKJF3rekwFvQ"
+   },
+   "source": [
+    "### Data Wrangling Code"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "wk-9a2fpoLcV"
+   },
+   "outputs": [],
+   "source": [
+    "# Remove invalid age entries\n",
+    "df = df[(df['age'] >= 18) & (df['age'] <= 100)]\n",
+    "\n",
+    "# Clean column names\n",
+    "df.columns = df.columns.str.strip().str.lower()\n",
+    "\n",
+    "# Strip whitespace and lowercase text data\n",
+    "df = df.apply(lambda x: x.str.strip().str.lower() if x.dtype == 'object' else x)\n",
+    "\n",
+    "# Standardize gender categories\n",
+    "df['gender'] = df['gender'].replace({\n",
+    "    'f': 'female', 'female ': 'female', 'cis female': 'female', 'woman': 'female',\n",
+    "    'm': 'male', 'male ': 'male', 'cis male': 'male', 'man': 'male',\n",
+    "    'trans-female': 'transgender', 'trans male': 'transgender',\n",
+    "    'non-binary': 'nonbinary', 'genderqueer': 'nonbinary', 'agender': 'nonbinary'\n",
+    "})\n",
+    "df['gender'] = df['gender'].apply(lambda x: x if x in ['male', 'female', 'transgender', 'nonbinary'] else 'other')\n",
+    "\n",
+    "# Drop duplicate entries\n",
+    "df = df.drop_duplicates()\n",
+    "\n",
+    "# Drop rows with missing age, gender, or treatment\n",
+    "df = df.dropna(subset=['age', 'gender', 'treatment'])\n",
+    "\n",
+    "# Final shape of cleaned data\n",
+    "print(\"Cleaned dataset shape:\", df.shape)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "MSa1f5Uengrz"
+   },
+   "source": [
+    "### What all manipulations have you done and insights you found?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "LbyXE7I1olp8"
+   },
+   "source": [
+    "1. Removed Wrong Ages\n",
+    "Deleted entries where age was too low (under 18) or too high (over 100).\n",
+    "2. Cleaned Column Names\n",
+    "Fixed messy column names by making them lowercase and removing extra spaces.\n",
+    "3. Cleaned Text Data\n",
+    "Removed extra spaces and made all text lowercase (like \" Yes \" → \"yes\").\n",
+    "4. Fixed Gender Column\n",
+    "Grouped all similar gender responses into 4 clear groups: male, female, transgender, nonbinary\n",
+    "Everything else was labeled as other.\n",
+    "5. Removed Duplicate Rows\n",
+    "Got rid of any repeated survey responses.\n",
+    "6. Handled Missing Values\n",
+    "Removed rows where important values (like age, gender, or treatment) were missing.\n",
+    "\n",
+    "Insights:\n",
+    "1. The dataset has 1259 survey responses, each one is about mental health in tech jobs.\n",
+    "2. The questions include: Age, gender, country\n",
+    "-Whether the person has had treatment for mental health\n",
+    "-If their company supports mental health\n",
+    "3. Some columns had missing values, especially questions like U.S. state and work interference.\n",
+    "4. The gender column had many different ways of saying the same thing (like \"cis male\", \"M\", \"male \"), so I grouped them properly.\n",
+    "5. The dataset is now clean, simple, and ready to start analyzing things like: How many people sought treatment\n",
+    "-If mental health affects work\n",
+    "-Differences between male and female respondents\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "GF8Ens_Soomf"
+   },
+   "source": [
+    "## ***4. Data Vizualization, Storytelling & Experimenting with charts : Understand the relationships between variables***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "0wOQAZs5pc--"
+   },
+   "source": [
+    "#### Chart - 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "7v_ESjsspbW7"
+   },
+   "outputs": [],
+   "source": [
+    "# Gender vs Mental Health Treatment\n",
+    "\n",
+    "import seaborn as sns\n",
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"gender\", hue=\"treatment\", palette=\"Set2\")\n",
+    "plt.title(\"Treatment by Gender\")\n",
+    "plt.xlabel(\"Gender\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "K5QZ13OEpz2H"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "XESiWehPqBRc"
+   },
+   "source": [
+    "This grouped bar chart shows the comparison of mental health treatment responses across different gender groups. It's a simple and effective way to see how gender relates to treatment behavior, which is central to this survey."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "lQ7QKXXCp7Bj"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "C_j1G7yiqdRP"
+   },
+   "source": [
+    "Female respondents are more likely to report having sought treatment than male respondents.\n",
+    "Transgender and nonbinary groups also show relatively high treatment rates, but the total number of responses from these groups is lower.\n",
+    "Male respondents have a higher count of people not seeking treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "448CDAPjqfQr"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "3cspy4FjqxJW"
+   },
+   "source": [
+    "Yes, these insights help employers and HR teams understand that:\n",
+    "Mental health support should be inclusive across all gender identities.\n",
+    "Men might be less likely to seek help, possibly due to stigma — companies could design programs to normalize mental health care for everyone.\n",
+    "No clear negative growth, but ignoring these trends may lead to employees not receiving help, lowering productivity or increasing turnover."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "KSlN3yHqYklG"
+   },
+   "source": [
+    "#### Chart - 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "R4YgtaqtYklH"
+   },
+   "outputs": [],
+   "source": [
+    "#  Age Distribution Based on Treatment\n",
+    "\n",
+    "plt.figure(figsize=(10, 6))\n",
+    "sns.boxplot(data=df, x=\"treatment\", y=\"age\", palette=\"coolwarm\")\n",
+    "plt.title(\"Age Distribution: Treated vs Not Treated\")\n",
+    "plt.xlabel(\"Sought Treatment\")\n",
+    "plt.ylabel(\"Age\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "t6dVpIINYklI"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "5aaW0BYyYklI"
+   },
+   "source": [
+    "I used a box plot because it clearly shows the spread and median age of people who have or haven’t received treatment. It helps compare age patterns across the two groups."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ijmpgYnKYklI"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PSx9atu2YklI"
+   },
+   "source": [
+    "People who said “Yes” to treatment tend to be slightly younger on average.\n",
+    "The majority of both groups fall in the 25–40 age range.\n",
+    "A few outliers (very high or low ages) appear in both groups."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "-JiQyfWJYklI"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "BcBbebzrYklV"
+   },
+   "source": [
+    "Yes. This insight shows that younger employees are more likely to seek help, so companies should offer accessible mental health resources for early career professionals.\n",
+    "Outliers may indicate incorrect age entries — companies should ensure accurate data collection in internal surveys."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "EM7whBJCYoAo"
+   },
+   "source": [
+    "#### Chart - 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "t6GMdE67YoAp"
+   },
+   "outputs": [],
+   "source": [
+    "# Remote Work vs Mental Health Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"remote_work\", hue=\"treatment\", palette=\"pastel\")\n",
+    "plt.title(\"Remote Work and Mental Health Treatment\")\n",
+    "plt.xlabel(\"Works Remotely?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "fge-S5ZAYoAp"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "5dBItgRVYoAp"
+   },
+   "source": [
+    "This grouped bar chart helps compare how often people who work remotely vs. those who don’t report getting mental health treatment. It's simple and clear for yes/no comparisons."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "85gYPyotYoAp"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "4jstXR6OYoAp"
+   },
+   "source": [
+    "Both remote and non-remote workers seek treatment, but remote workers may be slightly more likely to say \"Yes\".\n",
+    "The difference is not huge, but it suggests that remote workers might have more flexibility or comfort accessing help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "RoGjAbkUYoAp"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "zfJ8IqMcYoAp"
+   },
+   "source": [
+    "Yes. This suggests companies can:\n",
+    "Make mental health services accessible online, especially for remote teams.\n",
+    "Consider offering flexibility as a support tool for mental health."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "4Of9eVA-YrdM"
+   },
+   "source": [
+    "#### Chart - 4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "irlUoxc8YrdO"
+   },
+   "outputs": [],
+   "source": [
+    "# Family History vs Mental Health Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"family_history\", hue=\"treatment\", palette=\"muted\")\n",
+    "plt.title(\"Mental Health Treatment vs Family History\")\n",
+    "plt.xlabel(\"Family History of Mental Illness\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "iky9q4vBYrdO"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "aJRCwT6DYrdO"
+   },
+   "source": [
+    "A grouped bar chart is ideal for comparing yes/no responses across two variables — in this case, family history and treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "F6T5p64dYrdO"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Xx8WAJvtYrdO"
+   },
+   "source": [
+    "People with a family history of mental illness are more likely to seek treatment.\n",
+    "Those without a family history are less likely to get treatment, even if they may need it."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "y-Ehk30pYrdP"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "jLNxxz7MYrdP"
+   },
+   "source": [
+    "Yes. It shows that awareness and openness around mental health (often seen in families with a history) can lead to more people seeking help.\n",
+    "Companies can create awareness programs to reduce hesitation even in those without prior exposure to mental health discussions.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "bamQiAODYuh1"
+   },
+   "source": [
+    "#### Chart - 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "TIJwrbroYuh3"
+   },
+   "outputs": [],
+   "source": [
+    "# Employer Mental Health Benefits vs Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"benefits\", hue=\"treatment\", palette=\"Set3\")\n",
+    "plt.title(\"Treatment vs Employer Mental Health Benefits\")\n",
+    "plt.xlabel(\"Company Offers Mental Health Benefits?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "QHF8YVU7Yuh3"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "dcxuIMRPYuh3"
+   },
+   "source": [
+    "This grouped bar chart makes it easy to see if access to mental health benefits at work affects people’s decision to get help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "GwzvFGzlYuh3"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "uyqkiB8YYuh3"
+   },
+   "source": [
+    "People who know their company offers mental health benefits are more likely to seek treatment.\n",
+    "Those who answered \"No\" or \"Don't know\" are less likely to have received treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "qYpmQ266Yuh3"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "_WtzZ_hCYuh4"
+   },
+   "source": [
+    "Yes. It highlights how important it is for companies to:\n",
+    "Offer clear and visible mental health support\n",
+    "Make sure employees know these benefits exist\n",
+    "This can lead to better employee well-being and reduce burnout or turnover."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "OH-pJp9IphqM"
+   },
+   "source": [
+    "#### Chart - 6"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "kuRf4wtuphqN"
+   },
+   "outputs": [],
+   "source": [
+    "# Comfort Talking to Supervisor vs Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"supervisor\", hue=\"treatment\", palette=\"coolwarm\")\n",
+    "plt.title(\"Comfort Talking to Supervisor vs Treatment\")\n",
+    "plt.xlabel(\"Comfortable Discussing Mental Health with Supervisor?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "bbFf2-_FphqN"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "loh7H2nzphqN"
+   },
+   "source": [
+    "This grouped bar chart helps us understand how support from supervisors influences whether employees seek treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "_ouA3fa0phqN"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "VECbqPI7phqN"
+   },
+   "source": [
+    "People who feel comfortable talking to their supervisor are more likely to have sought treatment.\n",
+    "Those who are not comfortable or not sure are less likely to get help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Seke61FWphqN"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "DW4_bGpfphqN"
+   },
+   "source": [
+    "Yes. This shows that when employees trust their supervisors, they're more likely to get the help they need — improving well-being and productivity.\n",
+    "Negative insight:\n",
+    "Yes. Many employees report being not comfortable or unsure about discussing mental health with their supervisors. This lack of openness can:\n",
+    "Lead to untreated mental health issues increase stress, absenteeism, or even resignations\n",
+    "Justification:\n",
+    "If companies don’t address this communication gap, it can create a toxic or isolating work culture, which hurts both people and performance."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PIIx-8_IphqN"
+   },
+   "source": [
+    "#### Chart - 7"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "lqAIGUfyphqO"
+   },
+   "outputs": [],
+   "source": [
+    "# Comfort Talking to Coworkers vs Treatment"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "t27r6nlMphqO"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "iv6ro40sphqO"
+   },
+   "source": [
+    "To see if being open about mental health with coworkers encourages people to seek help — a key part of workplace culture."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "r2jJGEOYphqO"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Po6ZPi4hphqO"
+   },
+   "source": [
+    "People who said \"Yes\" to being comfortable with coworkers are more likely to have sought treatment.\n",
+    "Those who said \"No\" or \"Some of them\" are less likely to seek help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "b0JNsNcRphqO"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "xvSq8iUTphqO"
+   },
+   "source": [
+    "Yes. Encouraging open conversations among coworkers can lead to more people getting support when they need it.\n",
+    "Potential negative insight:\n",
+    "Yes. If employees feel uncomfortable discussing mental health with coworkers, they may feel isolated, and less likely to seek help — especially in team-heavy work cultures.\n",
+    "Justification:\n",
+    "A culture of silence around mental health may lead to lower engagement and higher turnover, especially in stressful roles."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "BZR9WyysphqO"
+   },
+   "source": [
+    "#### Chart - 8"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "TdPTWpAVphqO"
+   },
+   "outputs": [],
+   "source": [
+    "# Work Interference Due to Mental Health\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"work_interfere\", hue=\"treatment\", palette=\"pastel\")\n",
+    "plt.title(\"Work Interference from Mental Health vs Treatment\")\n",
+    "plt.xlabel(\"How Often Mental Health Interferes with Work\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "jj7wYXLtphqO"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Ob8u6rCTphqO"
+   },
+   "source": [
+    "To understand whether people who report frequent interference at work due to mental health are more likely to seek treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "eZrbJ2SmphqO"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "mZtgC_hjphqO"
+   },
+   "source": [
+    "People who answered \"Often\" or \"Sometimes\" are much more likely to seek treatment.\n",
+    "People who answered \"Rarely\" or \"Never\" mostly have not sought treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "rFu4xreNphqO"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ey_0qi68phqO"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. The insight helps employers identify the importance of early support before mental health starts interfering with productivity.\n",
+    "\n",
+    "Potential negative insight:\n",
+    "Yes. If employees wait until mental health interferes with work before seeking help, it may already be affecting performance, deadlines, and morale.\n",
+    "\n",
+    "Justification:\n",
+    "Companies should proactively provide support and mental health check-ins, rather than waiting until it becomes a work performance issue."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "YJ55k-q6phqO"
+   },
+   "source": [
+    "#### Chart - 9"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "B2aS4O1ophqO"
+   },
+   "outputs": [],
+   "source": [
+    "# Perception of Mental Health vs Physical Health\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"mental_vs_physical\", hue=\"treatment\", palette=\"Set1\")\n",
+    "plt.title(\"Perception: Mental vs Physical Health vs Treatment\")\n",
+    "plt.xlabel(\"Mental Health is Treated as Seriously as Physical Health?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "gCFgpxoyphqP"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "TVxDimi2phqP"
+   },
+   "source": [
+    "To understand if people’s perception of workplace fairness between mental and physical health affects their willingness to seek treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "OVtJsKN_phqQ"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ngGi97qjphqQ"
+   },
+   "source": [
+    "People who believe mental health is treated equally or better are more likely to seek treatment.\n",
+    "Those who believe it is not treated equally are less likely to get help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "lssrdh5qphqQ"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "tBpY5ekJphqQ"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. This insight encourages companies to show that mental health matters as much as physical health — which increases employee trust and support-seeking.\n",
+    "\n",
+    "Negative insight:\n",
+    "Yes. If employees don’t feel mental health is taken seriously, they may avoid asking for help — leading to hidden burnout, reduced performance, and even attrition.\n",
+    "\n",
+    "Justification:\n",
+    "Ignoring this perception gap can create a culture of silence around mental health — which damages both employee well-being and business outcomes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "U2RJ9gkRphqQ"
+   },
+   "source": [
+    "#### Chart - 10"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "GM7a4YP4phqQ"
+   },
+   "outputs": [],
+   "source": [
+    "# Ease of Taking Leave for Mental Health vs Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"leave\", hue=\"treatment\", palette=\"coolwarm\")\n",
+    "plt.title(\"Ease of Taking Mental Health Leave vs Treatment\")\n",
+    "plt.xlabel(\"Ease of Taking Leave\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "1M8mcRywphqQ"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "8agQvks0phqQ"
+   },
+   "source": [
+    "To explore whether company leave policies and flexibility affect mental health help-seeking behavior."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "tgIPom80phqQ"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Qp13pnNzphqQ"
+   },
+   "source": [
+    "People who said it's easy to take leave are more likely to seek treatment.\n",
+    "Those who said it's difficult or unsure are less likely to get help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "JMzcOPDDphqR"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "R4Ka1PC2phqR"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. This shows that making leave policies clear, supportive, and accessible can encourage treatment and reduce employee stress.\n",
+    "\n",
+    "Negative insight:\n",
+    "Yes. If employees don’t know or feel it’s hard to take mental health leave, they may: Delay treatment, work while unwell,become disengaged.\n",
+    "Justification:\n",
+    "Companies with unclear or rigid leave policies risk losing trust, increasing burnout, and hurting long-term productivity."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "x-EpHcCOp1ci"
+   },
+   "source": [
+    "#### Chart - 11"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "mAQTIvtqp1cj"
+   },
+   "outputs": [],
+   "source": [
+    "# Company Size vs Mental Health Treatment\n",
+    "\n",
+    "plt.figure(figsize=(10, 5))\n",
+    "sns.countplot(data=df, x=\"no_employees\", hue=\"treatment\", palette=\"Set2\")\n",
+    "plt.title(\"Company Size vs Mental Health Treatment\")\n",
+    "plt.xlabel(\"Number of Employees\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=45)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "X_VqEhTip1ck"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "-vsMzt_np1ck"
+   },
+   "source": [
+    "To understand if people in larger or smaller companies are more likely to get mental health treatment."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "8zGJKyg5p1ck"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ZYdMsrqVp1ck"
+   },
+   "source": [
+    "People working in medium to large companies seem slightly more likely to seek treatment.\n",
+    "In small companies (1–25 employees), fewer people seek help — possibly due to limited support or stigma."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "PVzmfK_Ep1ck"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "druuKYZpp1ck"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. It shows that larger companies may offer better access to mental health resources — a good practice smaller companies can learn from.\n",
+    "\n",
+    "Negative insight:\n",
+    "Yes. In small workplaces, fear of being judged or lack of HR support may discourage employees from seeking help.\n",
+    "\n",
+    "Justification:\n",
+    "If small companies don’t offer visible mental health support, it can lead to low morale, hidden stress, and unreported mental health issues."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "n3dbpmDWp1ck"
+   },
+   "source": [
+    "#### Chart - 12"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "bwevp1tKp1ck"
+   },
+   "outputs": [],
+   "source": [
+    "# Self-Employment vs Mental Health Treatment\n",
+    "\n",
+    "plt.figure(figsize=(7, 5))\n",
+    "sns.countplot(data=df, x=\"self_employed\", hue=\"treatment\", palette=\"Set3\")\n",
+    "plt.title(\"Self-Employment vs Mental Health Treatment\")\n",
+    "plt.xlabel(\"Self-Employed\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ylSl6qgtp1ck"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "m2xqNkiQp1ck"
+   },
+   "source": [
+    "To explore whether self-employed individuals are more or less likely to seek mental health treatment compared to those who work for an organization."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ZWILFDl5p1ck"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "x-lUsV2mp1ck"
+   },
+   "source": [
+    "The number of self-employed individuals who seek treatment is lower than those who are not self-employed.\n",
+    "Many self-employed people may not seek help — possibly due to lack of access, insurance, or structured support.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "M7G43BXep1ck"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "5wwDJXsLp1cl"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. Understanding this gap can help in designing mental health programs tailored for freelancers, consultants, and entrepreneurs.\n",
+    "\n",
+    "Negative insight:\n",
+    "Yes. Self-employed individuals may face more barriers to seeking help, leading to untreated stress or burnout.\n",
+    "\n",
+    "Justification:\n",
+    "Without employer-provided support, independent workers may be more vulnerable — affecting their work quality, mental health, and client relationships."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Ag9LCva-p1cl"
+   },
+   "source": [
+    "#### Chart - 13"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "EUfxeq9-p1cl"
+   },
+   "outputs": [],
+   "source": [
+    "# Tech Company vs Mental Health Treatment\n",
+    "\n",
+    "plt.figure(figsize=(7, 5))\n",
+    "sns.countplot(data=df, x=\"tech_company\", hue=\"treatment\", palette=\"pastel\")\n",
+    "plt.title(\"Tech vs Non-Tech Companies: Mental Health Treatment\")\n",
+    "plt.xlabel(\"Works in a Tech Company?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "E6MkPsBcp1cl"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "V22bRsFWp1cl"
+   },
+   "source": [
+    "To see if work environment (tech vs non-tech) affects whether people seek help for mental health concerns."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "2cELzS2fp1cl"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "ozQPc2_Ip1cl"
+   },
+   "source": [
+    "Both tech and non-tech employees report mental health treatment, but non-tech workers seem to seek help slightly more often.\n",
+    "The difference isn’t huge, but it may reflect cultural or organizational differences."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "3MPXvC8up1cl"
+   },
+   "source": [
+    "##### 3. Will the gained insights help creating a positive business impact?\n",
+    "Are there any insights that lead to negative growth? Justify with specific reason."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "GL8l1tdLp1cl"
+   },
+   "source": [
+    "Positive impact:\n",
+    "Yes. Tech companies can use this insight to review how open or supportive their culture is toward mental health.\n",
+    "\n",
+    "Negative insight:\n",
+    "Yes. If tech companies don’t normalize mental health discussions, it could lead to underreporting, stress build-up, and lower innovation or retention in high-pressure roles.\n",
+    "\n",
+    "Justification:\n",
+    "Even in modern industries like tech, stigma or lack of access may still exist — this should be addressed to retain top talent and improve team performance."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "NC_X3p0fY2L0"
+   },
+   "source": [
+    "#### Chart - 14 - Correlation Heatmap"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "xyC9zolEZNRQ"
+   },
+   "outputs": [],
+   "source": [
+    "# Willingness to Discuss Mental Health in Job Interviews\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"mental_health_interview\", hue=\"treatment\", palette=\"Set1\")\n",
+    "plt.title(\"Willingness to Discuss Mental Health in Interviews vs Treatment\")\n",
+    "plt.xlabel(\"Would Discuss Mental Health in Interview?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "UV0SzAkaZNRQ"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "DVPuT8LYZNRQ"
+   },
+   "source": [
+    "To see if openness about mental health in job interviews is connected to actually seeking help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "YPEH6qLeZNRQ"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "bfSqtnDqZNRR"
+   },
+   "source": [
+    "Most people are not comfortable discussing mental health in interviews.\n",
+    "Those who are comfortable are more likely to have sought treatment.\n",
+    "A large group remains unsure, showing hesitation and stigma."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "q29F0dvdveiT"
+   },
+   "source": [
+    "#### Chart - 15 - Pair Plot"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "o58-TEIhveiU"
+   },
+   "outputs": [],
+   "source": [
+    "# Observed Mental Health Consequences at Work vs Treatment\n",
+    "\n",
+    "plt.figure(figsize=(8, 5))\n",
+    "sns.countplot(data=df, x=\"obs_consequence\", hue=\"treatment\", palette=\"muted\")\n",
+    "plt.title(\"Observed Consequences at Work vs Treatment\")\n",
+    "plt.xlabel(\"Have You Observed Negative Mental Health Consequences at Work?\")\n",
+    "plt.ylabel(\"Number of People\")\n",
+    "plt.legend(title=\"Sought Treatment\")\n",
+    "plt.xticks(rotation=15)\n",
+    "plt.tight_layout()\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "EXh0U9oCveiU"
+   },
+   "source": [
+    "##### 1. Why did you pick the specific chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "eMmPjTByveiU"
+   },
+   "source": [
+    "To see if fear of judgment or punishment based on what people have seen at work influences their own mental health decisions."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "22aHeOlLveiV"
+   },
+   "source": [
+    "##### 2. What is/are the insight(s) found from the chart?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "uPQ8RGwHveiV"
+   },
+   "source": [
+    "People who have witnessed negative consequences are often less likely to seek treatment themselves.\n",
+    "Those who haven’t observed such consequences tend to be more open to getting help."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "JcMwzZxoAimU"
+   },
+   "source": [
+    "## **5. Solution to Business Objective**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "8G2x9gOozGDZ"
+   },
+   "source": [
+    "#### What do you suggest the client to achieve Business Objective ?\n",
+    "Explain Briefly."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "pASKb0qOza21"
+   },
+   "source": [
+    "Business Objective:\n",
+    "To understand employee behavior around mental health in the tech industry and use these insights to create policies, culture, and support systems that improve mental well-being and productivity.\n",
+    "\n",
+    "Suggested Solution for the Client:\n",
+    "To achieve this objective, the company should focus on a three-part strategy:\n",
+    "\n",
+    "1. Create a Safe & Open Mental Health Culture\n",
+    "Encourage open conversations through mental health awareness campaigns and leadership role modeling.\n",
+    "Train supervisors and team leads to respond supportively when employees open up about mental health.\n",
+    "Foster peer support — employees who feel safe talking to coworkers are more likely to seek help.\n",
+    "2. Strengthen Access & Visibility of Mental Health Support\n",
+    "Clearly communicate mental health benefits to all employees — those unaware of support are less likely to seek treatment.\n",
+    "Ensure leave policies are flexible and openly supportive of mental health needs.\n",
+    "Promote online resources and therapy access for remote and self-employed workers.\n",
+    "3. Remove Fear of Negative Consequences\n",
+    "Build a non-judgmental workplace where mental health is treated as seriously as physical health.\n",
+    "Enforce policies to protect employees from bias, punishment, or unfair treatment due to mental health issues.\n",
+    "Share stories (with consent) of employees who got help and continued to thrive — reduce the fear of being judged.\n",
+    "\n",
+    "To meet the objective, focus on normalizing mental health, making support systems visible, and removing stigma or fear around getting help. These steps will improve employee trust, engagement, and overall productivity — especially in the high-pressure tech industry.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "gCX9965dhzqZ"
+   },
+   "source": [
+    "# **Conclusion**"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Fjb1IsQkh3yE"
+   },
+   "source": [
+    "This analysis gave us a clear picture of how mental health is viewed and handled in the tech industry. We looked at how different factors — like gender, age, remote work, company size, and support from employers — affect whether people actually seek help for their mental health.\n",
+    "\n",
+    "The charts showed that people are more likely to get help when they feel supported, have access to benefits, and work in a place where it’s okay to talk about mental health. On the other hand, stigma, lack of awareness, or fear of judgment can stop people from getting the help they need.\n",
+    "\n",
+    "If companies want to build a healthier, more productive workplace, they need to focus on:\n",
+    "\n",
+    "Making mental health support visible and easy to access\n",
+    "Training managers to be supportive\n",
+    "Creating a culture where it's safe to open up\n",
+    "In short, taking mental health seriously helps people and helps business — it’s a win-win."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "gIfDvo9L0UH2"
+   },
+   "source": [
+    "### ***Hurrah! You have successfully completed your EDA Capstone Project !!!***"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "dYX880etpL0x"
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "id": "-6Vl263upPVI"
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "collapsed_sections": [
+    "vncDsAP0Gaoa",
+    "FJNUwmbgGyua",
+    "w6K7xa23Elo4",
+    "yQaldy8SH6Dl",
+    "PH-0ReGfmX4f",
+    "mDgbUHAGgjLW",
+    "O_i_v8NEhb9l",
+    "HhfV-JJviCcP",
+    "Y3lxredqlCYt",
+    "3RnN4peoiCZX",
+    "x71ZqKXriCWQ",
+    "7hBIi_osiCS2",
+    "JlHwYmJAmNHm",
+    "35m5QtbWiB9F",
+    "PoPl-ycgm1ru",
+    "H0kj-8xxnORC",
+    "nA9Y7ga8ng1Z",
+    "PBTbrJXOngz2",
+    "u3PMJOP6ngxN",
+    "dauF4eBmngu3",
+    "bKJF3rekwFvQ",
+    "MSa1f5Uengrz",
+    "GF8Ens_Soomf",
+    "0wOQAZs5pc--",
+    "K5QZ13OEpz2H",
+    "lQ7QKXXCp7Bj",
+    "448CDAPjqfQr",
+    "KSlN3yHqYklG",
+    "t6dVpIINYklI",
+    "ijmpgYnKYklI",
+    "-JiQyfWJYklI",
+    "EM7whBJCYoAo",
+    "fge-S5ZAYoAp",
+    "85gYPyotYoAp",
+    "RoGjAbkUYoAp",
+    "4Of9eVA-YrdM",
+    "iky9q4vBYrdO",
+    "F6T5p64dYrdO",
+    "y-Ehk30pYrdP",
+    "bamQiAODYuh1",
+    "QHF8YVU7Yuh3",
+    "GwzvFGzlYuh3",
+    "qYpmQ266Yuh3",
+    "OH-pJp9IphqM",
+    "bbFf2-_FphqN",
+    "_ouA3fa0phqN",
+    "Seke61FWphqN",
+    "PIIx-8_IphqN",
+    "t27r6nlMphqO",
+    "r2jJGEOYphqO",
+    "b0JNsNcRphqO",
+    "BZR9WyysphqO",
+    "jj7wYXLtphqO",
+    "eZrbJ2SmphqO",
+    "rFu4xreNphqO",
+    "YJ55k-q6phqO",
+    "gCFgpxoyphqP",
+    "OVtJsKN_phqQ",
+    "lssrdh5qphqQ",
+    "U2RJ9gkRphqQ",
+    "1M8mcRywphqQ",
+    "tgIPom80phqQ",
+    "JMzcOPDDphqR",
+    "x-EpHcCOp1ci",
+    "X_VqEhTip1ck",
+    "8zGJKyg5p1ck",
+    "PVzmfK_Ep1ck",
+    "n3dbpmDWp1ck",
+    "ylSl6qgtp1ck",
+    "ZWILFDl5p1ck",
+    "M7G43BXep1ck",
+    "Ag9LCva-p1cl",
+    "E6MkPsBcp1cl",
+    "2cELzS2fp1cl",
+    "3MPXvC8up1cl",
+    "NC_X3p0fY2L0",
+    "UV0SzAkaZNRQ",
+    "YPEH6qLeZNRQ",
+    "q29F0dvdveiT",
+    "EXh0U9oCveiU",
+    "22aHeOlLveiV",
+    "JcMwzZxoAimU",
+    "8G2x9gOozGDZ",
+    "gCX9965dhzqZ",
+    "gIfDvo9L0UH2"
+   ],
+   "private_outputs": true,
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
